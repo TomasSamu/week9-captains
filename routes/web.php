@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('start');
+})->name('start');
 
 Auth::routes();
+
+
+Route::get('captain/{captain_slug}', 'CaptainController@show');
+Route::post('captain/{captain_slug}', 'CaptainController@update');
+Route::get('captains', 'CaptainController@index');
+
+
