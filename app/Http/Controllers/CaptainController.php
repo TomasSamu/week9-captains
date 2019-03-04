@@ -28,19 +28,17 @@ class CaptainController extends Controller
         return view('captain.index', compact('captains'));
     }
 
-    public function update(Request $request)
+    public function store(Request $request)
     {
 
-/*          $assignment = new \App\Assignment;*/
-       $data = $request->all();
+   /*  $data = $request->all();
+    Assignment::create($data); */
 
-        $assignment = create($data);
+    $assignment = new \App\Assignment;
+    $assignment->subject = $request->subject;
+    $assignment->description = $request->description;
+    $assignment->save();
 
-/*         $assignment->subject = $request->subject;
-        $assignment->description = $request->description;
-         $assignment->captain_id = $id; 
-        $assignment->save(); */
-
-        return redirect(action('CaptainController@index'));
+    return redirect('/captains');
     }
 }

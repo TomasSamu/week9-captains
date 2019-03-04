@@ -19,7 +19,7 @@ Auth::routes();
 
 
 Route::get('captain/{captain_slug}', 'CaptainController@show');
-Route::post('captain/{captain_slug}', 'CaptainController@update');
+Route::post('captain/{captain_slug}', 'CaptainController@store');
 Route::get('captains', 'CaptainController@index');
 
 
